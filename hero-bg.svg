@@ -1,0 +1,36 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a2a6c" />
+      <stop offset="50%" stop-color="#b21f1f" />
+      <stop offset="100%" stop-color="#fdbb2d" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#heroGradient)" />
+  
+  <!-- Gym Equipment Silhouettes -->
+  <g fill="rgba(255,255,255,0.1)" transform="translate(100,100) scale(0.8)">
+    <!-- Dumbbell -->
+    <path d="M100,400 L150,400 L160,380 L200,380 L210,400 L260,400 L260,450 L210,450 L200,470 L160,470 L150,450 L100,450 Z" />
+    
+    <!-- Barbell -->
+    <path d="M400,420 L800,420 L800,430 L400,430 Z M380,400 L400,400 L400,450 L380,450 Z M800,400 L820,400 L820,450 L800,450 Z M350,390 L380,390 L380,460 L350,460 Z M820,390 L850,390 L850,460 L820,460 Z" />
+    
+    <!-- Kettlebell -->
+    <path d="M900,400 C900,370 930,350 960,350 C990,350 1020,370 1020,400 L1000,450 L1000,470 C1000,480 990,490 980,490 C970,490 960,480 960,470 L920,450 Z" />
+  </g>
+  
+  <!-- Abstract Shapes -->
+  <g opacity="0.2">
+    <circle cx="200" cy="200" r="80" fill="#ffffff" />
+    <circle cx="1000" cy="600" r="120" fill="#ffffff" />
+    <rect x="800" y="100" width="150" height="150" rx="20" fill="#ffffff" />
+    <rect x="300" y="600" width="100" height="100" rx="15" fill="#ffffff" />
+  </g>
+  
+  <!-- Dynamic Lines -->
+  <g stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none">
+    <path d="M0,300 Q300,100 600,300 T1200,300" />
+    <path d="M0,500 Q300,700 600,500 T1200,500" />
+  </g>
+</svg>

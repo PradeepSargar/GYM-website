@@ -1,0 +1,21 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="featureGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a2a6c" />
+      <stop offset="100%" stop-color="#b21f1f" />
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="90" fill="url(#featureGradient)" />
+  
+  <!-- Trainer Icon -->
+  <g fill="white" transform="translate(70, 45)">
+    <!-- Head -->
+    <circle cx="30" cy="30" r="20" />
+    
+    <!-- Body -->
+    <path d="M30,50 L30,100 M10,70 L50,70 M15,110 L30,100 L45,110" stroke="white" stroke-width="8" fill="none" />
+  </g>
+  
+  <!-- Text -->
+  <text x="100" y="150" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">TRAINERS</text>
+</svg>

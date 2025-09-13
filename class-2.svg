@@ -1,0 +1,19 @@
+<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="classGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a2a6c" />
+      <stop offset="100%" stop-color="#b21f1f" />
+    </linearGradient>
+  </defs>
+  <rect width="300" height="200" rx="10" fill="url(#classGradient)" />
+  
+  <!-- Yoga Icon -->
+  <g fill="white" transform="translate(100, 50) scale(0.7)">
+    <!-- Yoga Person -->
+    <circle cx="70" cy="30" r="20" /> <!-- Head -->
+    <path d="M70,50 L70,80 L50,110 M70,80 L90,110 M40,60 L100,60" stroke="white" stroke-width="8" fill="none" /> <!-- Body and arms -->
+  </g>
+  
+  <!-- Text -->
+  <text x="150" y="150" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">YOGA</text>
+</svg>
