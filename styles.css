@@ -97,83 +97,68 @@ body {
     transform-style: preserve-3d;
 }
 
-@keyframes glow {
-    0% {
-        box-shadow: 4px 9px 50px -1px rgba(0, 0, 0, 0.25);
-    }
-    100% {
-        box-shadow: 0px 0px 30px 5px rgba(139, 48, 45, 0.25);
-    }
+/* Features Section */
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: #1a2a6c;
+    position: relative;
+    padding-bottom: 15px;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.glass-box:hover {
-    box-shadow: 6px 12px 60px -1px rgba(0, 0, 0, 0.3);
-    transform: translateY(-5px) scale(1.02);
-    background: rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-.glass-box:after {
+.section-title::after {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
-    opacity: 0;
-    transform: scale(0.5);
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    pointer-events: none;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
 }
 
-.glass-box:hover:after {
-    opacity: 1;
-    transform: scale(1);
+.features-section {
+    padding: 80px 5%;
+    background-color: white;
 }
 
-/* Content */
-.content {
-    width: 320px;
-    height: 380px;
+.features-container {
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    padding: 20px 0;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Text Section */
-.text-section {
-    width: 100%;
-    height: 45px;
+.feature-card {
+    flex: 1;
+    background-color: white;
+    border-radius: 15px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 8px;
-}
-
-.signup-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 1.2em;
-    color: #8B302D;
-    text-align: center;
-    margin-bottom: 10px;
-    position: relative;
-    display: inline-block;
-    transition: transform 0.3s ease;
+    margin: 0 auto 25px;
+    color: white;
+    font-size: 30px;
+    box-shadow: 0 10px 20px rgba(26, 42, 108, 0.2);
 }
 
 .signup-title:after {

@@ -4,55 +4,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glassmorphism Login Form</title>
+    <title>ActiveLife - Gym Website</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="main-frame">
-        <!-- Background Image -->
-        <div class="background-image"></div>
+    <div class="main-container">
+        <!-- Header Section -->
+        <header class="header">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1>ActiveLife</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Classes</a></li>
+                    <li><a href="#">Trainers</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="login-btn">Login</button>
+                    <button class="signup-btn">Sign Up</button>
+                </div>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+            
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>Transform Your Body, Transform Your Life</h1>
+                    <p>Join ActiveLife Gym today and start your fitness journey with our expert trainers and state-of-the-art equipment.</p>
+                    <div class="hero-buttons">
+                        <button class="primary-btn">Get Started</button>
+                        <button class="secondary-btn">Learn More</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- Gym illustration will be added via CSS -->
+                </div>
+            </div>
+        </header>
         
-        <!-- Main Content -->
-        <div class="main-content">
-            <div class="glass-box">
-                <div class="content">
-                    <!-- Text Section -->
-                    <div class="text-section">
-                        <h1 class="signup-title">Login</h1>
+        <!-- Features Section -->
+        <section class="features-section">
+            <h2 class="section-title">Why Choose ActiveLife?</h2>
+            <div class="features-container">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-dumbbell"></i>
                     </div>
-                    
-                    <!-- Inputs Section -->
-                    <div class="inputs-section">
-                        <div class="input-group">
-                            <div class="input-box">
-                                <input type="text" placeholder="Username" class="input-field" id="username">
-                            </div>
-                            <div class="error-message" id="username-error"></div>
-                        </div>
-                        
-                        <div class="input-group">
-                            <div class="input-box">
-                                <input type="password" placeholder="Password" class="input-field" id="password">
-                            </div>
-                            <div class="error-message" id="password-error"></div>
-                        </div>
-                        
-                        <div class="login-button-group">
-                            <button class="login-button" id="login-btn">Login</button>
-                        </div>
-                        <div class="success-message" id="login-success"></div>
+                    <h3>Modern Equipment</h3>
+                    <p>State-of-the-art fitness equipment for all your workout needs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
                     </div>
-                    
-                    <!-- Footer Links -->
-                    <div class="footer-links">
-                        <a href="#" class="forget-password">Forgot Password</a>
-                        <a href="#" class="signup-link">Sign Up</a>
+                    <h3>Expert Trainers</h3>
+                    <p>Professional trainers to guide you through your fitness journey.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Flexible Classes</h3>
+                    <p>Various classes available to fit your schedule and preferences.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Classes Section -->
+        <section class="classes-section">
+            <h2 class="section-title">Our Classes</h2>
+            <div class="classes-container">
+                <div class="class-card">
+                    <div class="class-image" style="background-image: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');"></div>
+                    <div class="class-info">
+                        <h3>Cardio Blast</h3>
+                        <p>High-intensity cardio workout to burn calories and improve endurance.</p>
+                        <span class="class-time"><i class="far fa-clock"></i> Mon, Wed, Fri - 6:00 AM</span>
+                    </div>
+                </div>
+                <div class="class-card">
+                    <div class="class-image" style="background-image: url('https://images.unsplash.com/photo-1534258936925-c58bed479fcb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80');"></div>
+                    <div class="class-info">
+                        <h3>Strength Training</h3>
+                        <p>Build muscle and increase strength with our comprehensive program.</p>
+                        <span class="class-time"><i class="far fa-clock"></i> Tue, Thu - 5:30 PM</span>
+                    </div>
+                </div>
+                <div class="class-card">
+                    <div class="class-image" style="background-image: url('https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');"></div>
+                    <div class="class-info">
+                        <h3>Yoga Flow</h3>
+                        <p>Improve flexibility, balance, and mental clarity with our yoga classes.</p>
+                        <span class="class-time"><i class="far fa-clock"></i> Daily - 7:00 AM</span>
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="view-all-btn">
+                <button class="secondary-btn">View All Classes</button>
+            </div>
+        </section>
+        
+        <!-- Membership Section -->
+        <section class="membership-section">
+            <h2 class="section-title">Membership Plans</h2>
+            <div class="membership-container">
+                <div class="membership-card">
+                    <div class="membership-header">
+                        <h3>Basic</h3>
+                        <div class="price">$29<span>/month</span></div>
+                    </div>
+                    <div class="membership-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Access to gym floor</li>
+                            <li><i class="fas fa-check"></i> Basic equipment usage</li>
+                            <li><i class="fas fa-check"></i> Locker room access</li>
+                            <li class="not-included"><i class="fas fa-times"></i> Personal training</li>
+                            <li class="not-included"><i class="fas fa-times"></i> Group classes</li>
+                        </ul>
+                    </div>
+                    <button class="membership-btn">Choose Plan</button>
+                </div>
+                <div class="membership-card featured">
+                    <div class="popular-tag">Most Popular</div>
+                    <div class="membership-header">
+                        <h3>Premium</h3>
+                        <div class="price">$49<span>/month</span></div>
+                    </div>
+                    <div class="membership-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Access to gym floor</li>
+                            <li><i class="fas fa-check"></i> All equipment usage</li>
+                            <li><i class="fas fa-check"></i> Locker room access</li>
+                            <li><i class="fas fa-check"></i> 2 Personal training sessions</li>
+                            <li><i class="fas fa-check"></i> Group classes</li>
+                        </ul>
+                    </div>
+                    <button class="membership-btn featured-btn">Choose Plan</button>
+                </div>
+                <div class="membership-card">
+                    <div class="membership-header">
+                        <h3>Elite</h3>
+                        <div class="price">$79<span>/month</span></div>
+                    </div>
+                    <div class="membership-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> 24/7 Gym access</li>
+                            <li><i class="fas fa-check"></i> All equipment usage</li>
+                            <li><i class="fas fa-check"></i> Premium locker room</li>
+                            <li><i class="fas fa-check"></i> 5 Personal training sessions</li>
+                            <li><i class="fas fa-check"></i> Unlimited group classes</li>
+                        </ul>
+                    </div>
+                    <button class="membership-btn">Choose Plan</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <h2 class="section-title">What Our Members Say</h2>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Member">
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"ActiveLife has completely transformed my fitness journey. The trainers are knowledgeable and supportive, and the community is amazing!"</p>
+                        <h4>Sarah Johnson</h4>
+                        <span>Member since 2021</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Member">
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"I've tried many gyms before, but none compare to ActiveLife. The equipment is top-notch and the atmosphere is motivating."</p>
+                        <h4>Michael Chen</h4>
+                        <span>Member since 2020</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Member">
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"The variety of classes at ActiveLife keeps my workouts interesting. I've seen amazing results in just a few months!"</p>
+                        <h4>Emily Rodriguez</h4>
+                        <span>Member since 2022</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Call to Action Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Start Your Fitness Journey?</h2>
+                <p>Join ActiveLife today and get your first week free!</p>
+                <button class="primary-btn">Join Now</button>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>ActiveLife</h3>
+                    <p>Transform your body, transform your life with our state-of-the-art facilities and expert trainers.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Classes</a></li>
+                        <li><a href="#">Trainers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Classes</h4>
+                    <ul>
+                        <li><a href="#">Cardio Blast</a></li>
+                        <li><a href="#">Strength Training</a></li>
+                        <li><a href="#">Yoga Flow</a></li>
+                        <li><a href="#">HIIT</a></li>
+                        <li><a href="#">Pilates</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Fitness Street, Gym City</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> info@activelifegym.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 5am-10pm, Sat-Sun: 7am-8pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 ActiveLife Gym. All rights reserved.</p>
+            </div>
+        </footer>
     </div>
 </body>
 </html>

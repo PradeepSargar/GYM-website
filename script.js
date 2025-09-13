@@ -1,105 +1,199 @@
 // DOM Elements
-const usernameInput = document.getElementById('username');
-const passwordInput = document.getElementById('password');
-const loginBtn = document.getElementById('login-btn');
-const usernameError = document.getElementById('username-error');
-const passwordError = document.getElementById('password-error');
-const loginSuccess = document.getElementById('login-success');
-
-// Gym symbols to be displayed in the background
-const gymSymbols = [
-    '💪', '🏋️', '🏃', '🤸', '⚡', '🔥', '🥊', '🏆', '⛹️', '🧘', '🤾', '🚴',
-    '🏅', '🎯', '🧠', '💯', '⏱️', '🥇', '🥈', '🥉', '🏐', '🏈', '⚽', '🏀',
-    '⚾', '🥎', '🎾', '🏉', '🎱', '🏓', '🏸', '🥍', '🏏', '🥋', '🥊', '🤼'
-];
-
-// Initialize floating symbols when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // Create floating gym symbols
-    new FloatingSymbols();
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    const navButtons = document.querySelector('.nav-buttons');
+    
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            navButtons.classList.toggle('active');
+        });
+    }
+    
+    // Smooth scrolling for navigation links
+    const scrollLinks = document.querySelectorAll('a[href^="#"]');
+    
+    scrollLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const targetId = link.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    navButtons.classList.remove('active');
+                }
+            }
+        });
+    });
+    
+    // Animate elements on scroll
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.feature-card, .class-card, .membership-card, .testimonial-card');
+        
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            
+            if (elementPosition < screenPosition) {
+                element.classList.add('animate');
+            }
+        });
+    };
+    
+    // Initial check for elements in view
+    animateOnScroll();
+    
+    // Listen for scroll events
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // Membership plan selection
+    const membershipBtns = document.querySelectorAll('.membership-btn');
+    
+    membershipBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Get plan name from parent card
+            const planName = btn.closest('.membership-card').querySelector('h3').textContent;
+            alert(`You selected the ${planName} plan. Redirecting to registration...`);
+        });
+    });
+    
+    // Call to action and hero buttons
+    const ctaBtn = document.querySelector('.cta-section .primary-btn');
+    const heroStartBtn = document.querySelector('.hero-buttons .primary-btn');
+    const heroLearnBtn = document.querySelector('.hero-buttons .secondary-btn');
+    
+    if (ctaBtn) {
+        ctaBtn.addEventListener('click', () => {
+            alert('Thank you for your interest! Redirecting to registration page...');
+        });
+    }
+    
+    if (heroStartBtn) {
+        heroStartBtn.addEventListener('click', () => {
+            alert('Thank you for your interest! Redirecting to registration page...');
+        });
+    }
+    
+    if (heroLearnBtn) {
+        heroLearnBtn.addEventListener('click', () => {
+            // Scroll to features section
+            const featuresSection = document.querySelector('.features-section');
+            if (featuresSection) {
+                window.scrollTo({
+                    top: featuresSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+    
+    // Login and signup buttons in navbar
+    const loginBtn = document.querySelector('.nav-buttons .login-btn');
+    const signupBtn = document.querySelector('.nav-buttons .signup-btn');
+    
+    if (loginBtn) {
+        loginBtn.addEventListener('click', () => {
+            alert('Login functionality will be implemented soon!');
+        });
+    }
+    
+    if (signupBtn) {
+        signupBtn.addEventListener('click', () => {
+            alert('Sign up functionality will be implemented soon!');
+        });
+    }
 });
 
-// Class to handle floating gym symbols in the background
-class FloatingSymbols {
-    constructor() {
-        this.symbols = [];
-        this.mainFrame = document.querySelector('.main-frame');
-        this.createSymbols();
-        this.animateSymbols();
-    }
-
-    createSymbols() {
-        // Create 30 gym symbols in a grid pattern for even distribution
-        const rows = 5;
-        const cols = 6;
-        const totalSymbols = rows * cols;
+// Add CSS class for scroll animation
+const addAnimationStyles = () => {
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = `
+        .feature-card, .class-card, .membership-card, .testimonial-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
         
-        // Calculate cell size for grid
-        const cellWidth = 100 / cols;
-        const cellHeight = 100 / rows;
+        .feature-card.animate, .class-card.animate, .membership-card.animate, .testimonial-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
         
-        // Create symbols in a grid pattern
-        for (let row = 0; row < rows; row++) {
-            for (let col = 0; col < cols; col++) {
-                const symbol = document.createElement('div');
-                symbol.className = 'floating-symbol';
-                symbol.textContent = gymSymbols[Math.floor(Math.random() * gymSymbols.length)];
-                
-                // Calculate base position within the cell
-                const baseX = col * cellWidth;
-                const baseY = row * cellHeight;
-                
-                // Add some randomness within the cell (±30% of cell size)
-                const offsetX = (Math.random() - 0.5) * cellWidth * 0.6;
-                const offsetY = (Math.random() - 0.5) * cellHeight * 0.6;
-                
-                const posX = baseX + cellWidth/2 + offsetX;
-                const posY = baseY + cellHeight/2 + offsetY;
-                
-                // Random size and animation duration
-                const size = Math.random() * 30 + 20; // 20-50px
-                const duration = Math.random() * 20 + 10; // 10-30s
-                const delay = Math.random() * 5; // 0-5s
-                
-                symbol.style.cssText = `
-                    font-size: ${size}px;
-                    left: ${posX}%;
-                    top: ${posY}%;
-                    animation-duration: ${duration}s;
-                    animation-delay: ${delay}s;
-                    opacity: ${Math.random() * 0.5 + 0.1}; /* 0.1-0.6 opacity */
-                `;
-                
-                this.mainFrame.appendChild(symbol);
-                this.symbols.push(symbol);
+        .nav-links.active, .nav-buttons.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+            padding: 20px;
+            z-index: 100;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-links.active {
+            gap: 15px;
+        }
+        
+        .nav-buttons.active {
+            top: calc(70px + 200px);
+            gap: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links a::after {
+                display: none;
             }
         }
-    }
+    `;
+    document.head.appendChild(styleSheet);
+};
 
-    animateSymbols() {
-        // Continuously update positions for floating effect
-        setInterval(() => {
-            this.symbols.forEach(symbol => {
-                // Get current position
-                const currentLeft = parseFloat(symbol.style.left);
-                const currentTop = parseFloat(symbol.style.top);
+// Initialize animation styles
+addAnimationStyles();
+
+// Testimonial carousel functionality
+class TestimonialCarousel {
+    constructor() {
+        this.isLoading = false;
+        this.setupCarousel();
+    }
+    
+    setupCarousel() {
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        if (testimonials.length > 0) {
+            // Simple auto-rotation for testimonials
+            let currentIndex = 0;
+            
+            setInterval(() => {
+                testimonials.forEach((testimonial, index) => {
+                    testimonial.style.opacity = index === currentIndex ? '1' : '0.5';
+                    testimonial.style.transform = index === currentIndex ? 'scale(1.05)' : 'scale(1)';
+                });
                 
-                // Add small random movement
-                const newLeft = (currentLeft + (Math.random() * 2 - 1) + 100) % 100;
-                const newTop = (currentTop + (Math.random() * 2 - 1) + 100) % 100;
-                
-                // Apply new position with transition
-                symbol.style.left = `${newLeft}%`;
-                symbol.style.top = `${newTop}%`;
-            });
-        }, 5000); // Update every 5 seconds
+                currentIndex = (currentIndex + 1) % testimonials.length;
+            }, 3000);
+        }
     }
 }
 
-// Form validation and interaction
-class LoginForm {
-    constructor() {
-        this.isLoading = false;
+// Initialize testimonial carousel
+document.addEventListener('DOMContentLoaded', () => {
+    new TestimonialCarousel();
+});
         this.init();
     }
 
